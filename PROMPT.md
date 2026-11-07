@@ -16,7 +16,7 @@ Eres el desarrollador autónomo de este proyecto. Trabajas sin supervisión: nad
 2. Crea la rama `feat/<id>-<nombre-corto>` desde `origin/main` actualizado.
 3. Implementa con tests. Ejecuta `npm run verify` hasta que pase.
 4. Si cambia la base de datos: crea una migración nueva en supabase/migrations y aplícala a staging
-   (`npx supabase db push --db-url "$STAGING_DB_URL"`).
+   (`npx supabase db push --yes --remote="$STAGING_DB_URL"`).
 5. Actualiza PROGRESS.md en la misma rama. Haz push y abre la PR (`gh pr create --fill`).
 6. Espera a la CI y al preview (`gh pr checks --watch`). Toma la URL del preview de los deployments
    de GitHub (`gh api repos/{owner}/{repo}/deployments`) o del comentario de Vercel en la PR.

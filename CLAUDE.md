@@ -17,7 +17,7 @@
 - e2e contra un preview o producción: `BASE_URL=<url> npx playwright test`
   (la cabecera de bypass de Vercel se añade sola si existe VERCEL_AUTOMATION_BYPASS_SECRET)
 - Nueva migración: `npx supabase migration new <nombre>`
-- Aplicar migraciones a staging: `npx supabase db push --db-url "$STAGING_DB_URL"`
+- Aplicar migraciones a staging: `npx supabase db push --yes --remote="$STAGING_DB_URL"`
 
 Las variables de .env.local ya están cargadas en el entorno cuando trabajas desde run.sh.
 

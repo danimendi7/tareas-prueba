@@ -21,4 +21,4 @@ jobs:
             echo "No hay secreto PROD_DB_URL: nada que migrar."
             exit 0
           fi
-          supabase db push --db-url "$PROD_DB_URL"
+          supabase db push --yes --remote="$PROD_DB_URL"
