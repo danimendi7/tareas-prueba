@@ -15,3 +15,10 @@ export async function registrar(page: Page, cuenta: Cuenta = cuentaAleatoria()):
   await expect(page).toHaveURL(/\/tareas$/);
   return cuenta;
 }
+
+export async function iniciarSesion(page: Page, cuenta: Cuenta): Promise<void> {
+  await page.goto("/entrar");
+  await page.getByLabel("Email").fill(cuenta.email);
+  await page.getByLabel("Contraseña").fill(cuenta.contrasena);
+  await page.getByRole("button", { name: "Entrar" }).click();
+}

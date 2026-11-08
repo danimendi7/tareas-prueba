@@ -26,3 +26,15 @@ export function mensajeErrorRegistro(codigo: string | undefined): string {
       return "No se ha podido crear la cuenta. Inténtalo de nuevo.";
   }
 }
+
+// Traduce los códigos de error de Supabase Auth al iniciar sesión.
+export function mensajeErrorEntrada(codigo: string | undefined): string {
+  switch (codigo) {
+    case "invalid_credentials":
+      return "El email o la contraseña no son correctos.";
+    case "over_request_rate_limit":
+      return "Demasiados intentos. Espera unos minutos y vuelve a probar.";
+    default:
+      return "No se ha podido iniciar sesión. Inténtalo de nuevo.";
+  }
+}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { mensajeErrorRegistro, validarCredenciales } from "./validacion";
+import { mensajeErrorEntrada, mensajeErrorRegistro, validarCredenciales } from "./validacion";
 
 describe("validarCredenciales", () => {
   it("acepta un email válido y una contraseña de 8 caracteres", () => {
@@ -22,5 +22,15 @@ describe("mensajeErrorRegistro", () => {
 
   it("usa un mensaje genérico para códigos desconocidos", () => {
     expect(mensajeErrorRegistro("otro")).toMatch(/No se ha podido/);
+  });
+});
+
+describe("mensajeErrorEntrada", () => {
+  it("explica en español que las credenciales no son correctas", () => {
+    expect(mensajeErrorEntrada("invalid_credentials")).toMatch(/no son correctos/);
+  });
+
+  it("usa un mensaje genérico para códigos desconocidos", () => {
+    expect(mensajeErrorEntrada(undefined)).toMatch(/No se ha podido/);
   });
 });
