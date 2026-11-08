@@ -22,3 +22,13 @@ export async function iniciarSesion(page: Page, cuenta: Cuenta): Promise<void> {
   await page.getByLabel("Contraseña").fill(cuenta.contrasena);
   await page.getByRole("button", { name: "Entrar" }).click();
 }
+
+export function tituloUnico(prefijo: string): string {
+  return `${prefijo} ${crypto.randomUUID().slice(0, 8)}`;
+}
+
+export async function anadirTarea(page: Page, titulo: string): Promise<void> {
+  await page.getByLabel("Nueva tarea").fill(titulo);
+  await page.getByRole("button", { name: "Añadir" }).click();
+  await expect(page.getByRole("listitem").filter({ hasText: titulo })).toBeVisible();
+}

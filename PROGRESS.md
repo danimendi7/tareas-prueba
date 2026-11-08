@@ -11,13 +11,13 @@ Plan creado a partir de docs/SPEC.md. Cada tarea cabe en menos de 1 hora y se co
 | T03 | Página `/registro` con validación | Sí | T02 | e2e: registro con email `@example.com` y contraseña de 8+ caracteres entra en `/tareas`; test unitario de validación | hecha | #3 |
 | T04 | Página `/entrar` con error en español | Sí | T03 | e2e: credenciales correctas → `/tareas`; contraseña incorrecta → mensaje en español y sigue en `/entrar` | hecha | #4 |
 | T05 | Cerrar sesión | Sí | T04 | e2e: "Cerrar sesión" → `/entrar` y `/tareas` deja de ser accesible | hecha | #5 |
-| T06 | Crear y ver tareas | Sí | T01, T05 | e2e: añadir pone la tarea la primera sin recargar; título vacío no crea y avisa; al recargar sigue el orden de más reciente a más antigua; test unitario del límite 1-120 | pendiente | |
-| T07 | Completar tarea | Sí | T06 | e2e: marcar la casilla la tacha y sigue tachada al recargar | pendiente | |
-| T08 | Borrar tarea | Sí | T06 | e2e: "Borrar" la quita y no vuelve al recargar | pendiente | |
-| T09 | Privacidad entre usuarios | Sí | T06 | e2e con dos cuentas: cada una ve solo sus tareas | pendiente | |
+| T06 | Crear y ver tareas | Sí | T01, T05 | e2e: añadir pone la tarea la primera sin recargar; título vacío no crea y avisa; al recargar sigue el orden de más reciente a más antigua; test unitario del límite 1-120 | hecha | #7 |
+| T07 | Completar tarea | Sí | T06 | e2e: marcar la casilla la tacha y sigue tachada al recargar | hecha | #7 |
+| T08 | Borrar tarea | Sí | T06 | e2e: "Borrar" la quita y no vuelve al recargar | hecha | #7 |
+| T09 | Privacidad entre usuarios | Sí | T06 | e2e con dos cuentas: cada una ve solo sus tareas | hecha | #7 |
 | T10 | Cierre: e2e contra producción y DONE.md | Sí | T01-T09 | `BASE_URL=$PRODUCTION_URL npx playwright test` en verde; DONE.md fusionado | pendiente | |
 | T11 | Filtro todas / pendientes / hechas | No | T07 | e2e: cada filtro muestra solo las tareas que corresponden | pendiente | |
-| T12 | Editar el título de una tarea | No | T06 | e2e: el título editado se conserva al recargar | pendiente | |
+| T12 | Editar el título de una tarea | No | T06 | e2e: el título editado se conserva al recargar | hecha | #7 |
 
 Estados: pendiente · en curso · hecha · bloqueada · PR lista para fusionar
 
