@@ -1,4 +1,5 @@
 import { connection } from "next/server";
+import { ItemTarea } from "@/components/ItemTarea";
 import { crearClienteServidor } from "@/lib/supabase/server";
 
 export async function ListaTareas() {
@@ -25,9 +26,7 @@ export async function ListaTareas() {
   return (
     <ul aria-label="Lista de tareas" className="mt-6 flex flex-col gap-2">
       {tareas.map((tarea) => (
-        <li key={tarea.id} className="break-words rounded border border-neutral-300 px-3 py-2 dark:border-neutral-700">
-          {tarea.titulo}
-        </li>
+        <ItemTarea key={tarea.id} tarea={tarea} />
       ))}
     </ul>
   );

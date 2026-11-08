@@ -1,5 +1,8 @@
 import { expect, type Page } from "@playwright/test";
 
+// El servidor de desarrollo compila cada ruta al primer uso: un paso con acción de servidor puede tardar.
+const ESPERA_SERVIDOR = 20_000;
+
 export type Cuenta = { email: string; contrasena: string };
 
 export function cuentaAleatoria(): Cuenta {
@@ -12,7 +15,7 @@ export async function registrar(page: Page, cuenta: Cuenta = cuentaAleatoria()):
   await page.getByLabel("Email").fill(cuenta.email);
   await page.getByLabel("Contraseña").fill(cuenta.contrasena);
   await page.getByRole("button", { name: "Registrarme" }).click();
-  await expect(page).toHaveURL(/\/tareas$/);
+  await expect(page).toHaveURL(/\/tareas$/, { timeout: ESPERA_SERVIDOR });
   return cuenta;
 }
 
@@ -30,5 +33,7 @@ export function tituloUnico(prefijo: string): string {
 export async function anadirTarea(page: Page, titulo: string): Promise<void> {
   await page.getByLabel("Nueva tarea").fill(titulo);
   await page.getByRole("button", { name: "Añadir" }).click();
-  await expect(page.getByRole("listitem").filter({ hasText: titulo })).toBeVisible();
+  await expect(page.getByRole("listitem").filter({ hasText: titulo })).toBeVisible({
+    timeout: ESPERA_SERVIDOR,
+  });
 }
