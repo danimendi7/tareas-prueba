@@ -15,12 +15,16 @@ Plan creado a partir de docs/SPEC.md. Cada tarea cabe en menos de 1 hora y se co
 | T07 | Completar tarea | Sí | T06 | e2e: marcar la casilla la tacha y sigue tachada al recargar | hecha | #7 |
 | T08 | Borrar tarea | Sí | T06 | e2e: "Borrar" la quita y no vuelve al recargar | hecha | #7 |
 | T09 | Privacidad entre usuarios | Sí | T06 | e2e con dos cuentas: cada una ve solo sus tareas | hecha | #7 |
-| T10 | Cierre: e2e contra producción y DONE.md | Sí | T01-T09 | `BASE_URL=$PRODUCTION_URL npx playwright test` en verde; DONE.md fusionado | pendiente | |
+| T10 | Cierre: e2e contra producción y DONE.md | Sí | T01-T09 | `BASE_URL=$PRODUCTION_URL npx playwright test` en verde; DONE.md fusionado | hecha | #11 |
 | T11 | Filtro todas / pendientes / hechas | No | T07 | e2e: cada filtro muestra solo las tareas que corresponden | hecha | #8 |
 | T12 | Editar el título de una tarea | No | T06 | e2e: el título editado se conserva al recargar | hecha | #7 |
 
 Estados: pendiente · en curso · hecha · bloqueada · PR lista para fusionar
 
 ## Bloqueos
+
+Ninguna tarea bloqueada.
+
+**Aviso (2026-11-08):** producción y staging usan la misma base de datos Supabase. Requiere una acción humana: ver DONE.md.
 
 ## Cambios de alcance
