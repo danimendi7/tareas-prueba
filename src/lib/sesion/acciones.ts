@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { crearClienteServidor } from "@/lib/supabase/server";
-import { mensajeErrorRegistro, validarCredenciales } from "./validacion";
+import { mensajeErrorEntrada, mensajeErrorRegistro, validarCredenciales } from "./validacion";
 
 export type EstadoFormulario = { error: string | null; email: string };
 
@@ -25,6 +25,19 @@ export async function registrar(
   const { data, error } = await supabase.auth.signUp({ email, password: contrasena });
   if (error) return { error: mensajeErrorRegistro(error.code), email };
   if (!data.session) return { error: mensajeErrorRegistro(undefined), email };
+
+  redirect("/tareas");
+}
+
+export async function entrar(
+  _previo: EstadoFormulario,
+  datos: FormData,
+): Promise<EstadoFormulario> {
+  const { email, contrasena } = leerCredenciales(datos);
+
+  const supabase = await crearClienteServidor();
+  const { error } = await supabase.auth.signInWithPassword({ email, password: contrasena });
+  if (error) return { error: mensajeErrorEntrada(error.code), email };
 
   redirect("/tareas");
 }
