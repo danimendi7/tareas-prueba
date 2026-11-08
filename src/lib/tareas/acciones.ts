@@ -30,3 +30,12 @@ export async function crearTarea(
   revalidatePath("/tareas");
   return { error: null };
 }
+
+export async function cambiarHecha(id: string, hecha: boolean): Promise<{ error: string | null }> {
+  const supabase = await clienteConSesion();
+  const { error } = await supabase.from("tareas").update({ hecha }).eq("id", id);
+  if (error) return { error: "No se ha podido actualizar la tarea. Inténtalo de nuevo." };
+
+  revalidatePath("/tareas");
+  return { error: null };
+}

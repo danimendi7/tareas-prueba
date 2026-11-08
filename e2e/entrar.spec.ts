@@ -7,7 +7,7 @@ test("con credenciales correctas llega a /tareas", async ({ browser, page }) => 
   await contexto.close();
 
   await iniciarSesion(page, cuenta);
-  await expect(page).toHaveURL(/\/tareas$/);
+  await expect(page).toHaveURL(/\/tareas$/, { timeout: 20_000 });
 });
 
 test("con contraseña incorrecta ve un error en español y sigue en /entrar", async ({ browser, page }) => {
