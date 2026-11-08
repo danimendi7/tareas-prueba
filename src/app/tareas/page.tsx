@@ -1,3 +1,6 @@
+import { Suspense } from "react";
+import { FormularioTarea } from "@/components/FormularioTarea";
+import { ListaTareas } from "@/components/ListaTareas";
 import { salir } from "@/lib/sesion/acciones";
 
 export default function Tareas() {
@@ -11,6 +14,10 @@ export default function Tareas() {
           </button>
         </form>
       </header>
+      <FormularioTarea />
+      <Suspense fallback={<p className="mt-6">Cargando tareas…</p>}>
+        <ListaTareas />
+      </Suspense>
     </>
   );
 }
