@@ -6,7 +6,7 @@ Plan creado a partir de docs/SPEC.md. Cada tarea cabe en menos de 1 hora y se co
 
 | ID | Tarea | MVP | Depende de | Criterio de aceptación (comprobable) | Estado | PR / preview |
 | --- | --- | --- | --- | --- | --- | --- |
-| T01 | Esquema `tareas` con RLS (migración aplicada a staging) | Sí | — | `supabase db push` a staging sin errores; `supabase migration list` la muestra aplicada; test contra staging: sin sesión no se lee ni se inserta ninguna tarea | pendiente | |
+| T01 | Esquema `tareas` con RLS (migración aplicada a staging) | Sí | — | `supabase db push` a staging sin errores; `supabase migration list` la muestra aplicada; test contra staging: sin sesión no se lee ni se inserta ninguna tarea | hecha | #2 |
 | T02 | Sesión en `proxy.ts`, redirecciones de `/` y `/tareas`, maquetación base (columna de 640 px) | Sí | — | e2e: sin sesión, `/` y `/tareas` acaban en `/entrar`; `npm run verify` en verde | pendiente | |
 | T03 | Página `/registro` con validación | Sí | T02 | e2e: registro con email `@example.com` y contraseña de 8+ caracteres entra en `/tareas`; test unitario de validación | pendiente | |
 | T04 | Página `/entrar` con error en español | Sí | T03 | e2e: credenciales correctas → `/tareas`; contraseña incorrecta → mensaje en español y sigue en `/entrar` | pendiente | |
