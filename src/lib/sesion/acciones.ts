@@ -41,3 +41,9 @@ export async function entrar(
 
   redirect("/tareas");
 }
+
+export async function salir(): Promise<void> {
+  const supabase = await crearClienteServidor();
+  await supabase.auth.signOut();
+  redirect("/entrar");
+}
