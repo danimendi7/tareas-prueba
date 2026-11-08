@@ -1,8 +1,15 @@
+import Link from "next/link";
+
+// src/proxy.ts redirige esta ruta; esto solo se ve si el proxy no llegara a ejecutarse.
 export default function Inicio() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-4 p-8">
-      <h1 className="text-3xl font-semibold">Proyecto en construcción</h1>
-      <p className="text-neutral-500">Claude sustituirá esta página siguiendo docs/SPEC.md.</p>
-    </main>
+    <>
+      <h1 className="text-2xl font-semibold">Tareas</h1>
+      <p className="mt-4">
+        <Link className="underline" href="/entrar">
+          Entrar
+        </Link>
+      </p>
+    </>
   );
 }
