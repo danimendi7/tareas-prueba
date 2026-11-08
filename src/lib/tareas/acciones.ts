@@ -39,3 +39,12 @@ export async function cambiarHecha(id: string, hecha: boolean): Promise<{ error:
   revalidatePath("/tareas");
   return { error: null };
 }
+
+export async function borrarTarea(id: string): Promise<{ error: string | null }> {
+  const supabase = await clienteConSesion();
+  const { error } = await supabase.from("tareas").delete().eq("id", id);
+  if (error) return { error: "No se ha podido borrar la tarea. Inténtalo de nuevo." };
+
+  revalidatePath("/tareas");
+  return { error: null };
+}
