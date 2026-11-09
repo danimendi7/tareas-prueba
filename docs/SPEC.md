@@ -24,9 +24,19 @@ Aplicación mínima de lista de tareas para validar de punta a punta el sistema 
 ### F4. Privacidad
 - Dados dos usuarios distintos, cuando cada uno abre /tareas, entonces solo ve sus propias tareas. Debe comprobarse con un test e2e que usa dos cuentas y con políticas RLS en la tabla.
 
-## 3. Después del MVP (en orden de prioridad)
-1. Filtro: todas / pendientes / hechas.
-2. Editar el título de una tarea.
+## 3. Ampliaciones tras el MVP (orden de Dani del 2026-11-09)
+
+### F5. Filtrar por estado
+- Dado un usuario en /tareas, cuando elige "Todas", "Pendientes" o "Hechas", entonces la lista muestra solo las tareas de ese estado y el filtro activo se indica de forma visible y accesible.
+- Dado un usuario con un filtro activo, cuando recarga la página, entonces el filtro sigue activo (va en la URL: `/tareas?filtro=pendientes`).
+- Dado un valor de filtro desconocido en la URL, entonces se muestran todas las tareas.
+- Dado un filtro sin resultados, entonces se ve un mensaje que lo indica y se puede cambiar de filtro.
+
+### F6. Editar el título
+- Dado un usuario con una tarea, cuando pulsa "Editar", cambia el título y pulsa "Guardar", entonces ve el título nuevo y se conserva al recargar.
+- Dado un usuario editando, cuando deja el título vacío o supera 120 caracteres, entonces no se guarda y ve un aviso.
+- Dado un usuario editando, cuando pulsa "Cancelar", entonces el título no cambia.
+- Dados dos usuarios distintos, ninguno puede editar las tareas del otro (RLS).
 
 ## 4. Datos: entidades y campos principales
 - tareas: id (uuid), user_id (referencia a auth.users), titulo (texto, 1-120), hecha (booleano, por defecto falso), creada (fecha y hora, por defecto ahora).
@@ -35,7 +45,7 @@ Aplicación mínima de lista de tareas para validar de punta a punta el sistema 
 - / → redirige a /tareas si hay sesión, o a /entrar si no.
 - /entrar → formulario de inicio de sesión y enlace a /registro.
 - /registro → formulario de registro y enlace a /entrar.
-- /tareas → formulario para añadir, lista de tareas y botón "Cerrar sesión".
+- /tareas → formulario para añadir, filtro por estado, lista de tareas con edición del título y botón "Cerrar sesión".
 
 ## 6. Usuarios y permisos
 - Cualquiera puede registrarse.
