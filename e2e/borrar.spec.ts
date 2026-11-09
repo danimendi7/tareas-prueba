@@ -7,7 +7,7 @@ test("borrar quita la tarea y no vuelve al recargar", async ({ page }) => {
   await anadirTarea(page, titulo);
 
   const item = page.getByRole("listitem").filter({ hasText: titulo });
-  await item.getByRole("button", { name: "Borrar" }).click();
+  await item.getByRole("button", { name: `Borrar ${titulo}`, exact: true }).click();
   await expect(item).toHaveCount(0, { timeout: 20_000 });
 
   await page.reload();
