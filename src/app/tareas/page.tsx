@@ -3,7 +3,7 @@ import { FormularioTarea } from "@/components/FormularioTarea";
 import { ListaTareas } from "@/components/ListaTareas";
 import { salir } from "@/lib/sesion/acciones";
 
-export default function Tareas() {
+export default function Tareas({ searchParams }: PageProps<"/tareas">) {
   return (
     <>
       <header className="flex items-center justify-between gap-4">
@@ -16,7 +16,7 @@ export default function Tareas() {
       </header>
       <FormularioTarea />
       <Suspense fallback={<p className="mt-6">Cargando tareas…</p>}>
-        <ListaTareas />
+        <ListaTareas searchParams={searchParams} />
       </Suspense>
     </>
   );
