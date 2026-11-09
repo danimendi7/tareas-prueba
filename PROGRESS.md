@@ -18,8 +18,8 @@ Plan creado a partir de docs/SPEC.md. Cada tarea cabe en menos de 1 hora y se co
 | T10 | Cierre: e2e contra producción y DONE.md | Sí | T01-T09 | `BASE_URL=$PRODUCTION_URL npx playwright test` en verde; DONE.md fusionado | — | hecha | #11 |
 | T11 | Filtro todas / pendientes / hechas | No | T07 | e2e: cada filtro muestra solo las tareas que corresponden | — | sustituida por T13 | — |
 | T12 | Editar el título de una tarea | No | T06 | e2e: el título editado se conserva al recargar | — | sustituida por T14 | — |
-| T13 | Filtro todas / pendientes / hechas en `/tareas` (orden 2026-11-09) | Orden | T07 | e2e `filtro.spec.ts`: cada filtro muestra solo las tareas que corresponden, sigue activo al recargar y un valor desconocido equivale a "todas"; test unitario de `normalizarFiltro` | high | en curso | — |
-| T14 | Editar el título de una tarea (orden 2026-11-09) | Orden | T06 | e2e `editar.spec.ts`: el título editado se conserva al recargar, vacío avisa y no guarda, cancelar no cambia nada; e2e `rls-tareas.spec.ts`: un usuario no puede editar tareas ajenas; test unitario del formulario | high | pendiente | — |
+| T13 | Filtro todas / pendientes / hechas en `/tareas` (orden 2026-11-09) | Orden | T07 | e2e `filtro.spec.ts`: cada filtro muestra solo las tareas que corresponden, sigue activo al recargar y un valor desconocido equivale a "todas"; test unitario de `normalizarFiltro` | high | hecha | #13 |
+| T14 | Editar el título de una tarea (orden 2026-11-09) | Orden | T06 | e2e `editar.spec.ts`: el título editado se conserva al recargar, vacío avisa y no guarda, cancelar no cambia nada; e2e `privacidad.spec.ts`: un usuario no puede editar tareas ajenas; test unitario del formulario | high | en curso | #14 |
 | T15 | Cierre de la orden: e2e contra producción, orden [hecha] y DONE.md | Orden | T13, T14 | `BASE_URL=$PRODUCTION_URL npx playwright test --workers=2` en verde; DONE.md fusionado y coherente con PROGRESS.md y docs/ORDENES.md | medium | pendiente | — |
 
 Estados: pendiente · en curso · hecha · bloqueada · PR lista para fusionar · sustituida

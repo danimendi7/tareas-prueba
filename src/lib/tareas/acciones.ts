@@ -40,6 +40,19 @@ export async function cambiarHecha(id: string, hecha: boolean): Promise<{ error:
   return { error: null };
 }
 
+export async function editarTitulo(id: string, valor: string): Promise<{ error: string | null }> {
+  const titulo = valor.trim();
+  const invalido = validarTitulo(titulo);
+  if (invalido) return { error: invalido };
+
+  const supabase = await clienteConSesion();
+  const { error } = await supabase.from("tareas").update({ titulo }).eq("id", id);
+  if (error) return { error: "No se ha podido actualizar la tarea. Inténtalo de nuevo." };
+
+  revalidatePath("/tareas");
+  return { error: null };
+}
+
 export async function borrarTarea(id: string): Promise<{ error: string | null }> {
   const supabase = await clienteConSesion();
   const { error } = await supabase.from("tareas").delete().eq("id", id);
